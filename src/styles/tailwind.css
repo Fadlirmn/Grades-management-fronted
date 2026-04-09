@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+/* Gunakan nama package yang ada di package.json kamu */
+@plugin "tailwindcss-animate";
+
+/* Jika ingin menambahkan source secara manual (opsional di v4) */
+@source "../../src/**/*.{js,ts,jsx,tsx}";
