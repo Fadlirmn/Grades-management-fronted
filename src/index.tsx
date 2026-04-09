@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './app/App'; // Karena index.tsx dan App.tsx satu level di folder src
-import './styles/index.css'; // Sesuaikan path ke folder styles
+import App from './app/App'; // Diarahkan ke folder app/App.tsx
+import './styles/index.css';
 
 const rootElement = document.getElementById('root');
 
 if (!rootElement) {
-  throw new Error('Gagal menemukan elemen root.');
+  throw new Error('Gagal menemukan elemen root. Pastikan ada <div id="root"></div> di index.html');
 }
 
 const root = ReactDOM.createRoot(rootElement);

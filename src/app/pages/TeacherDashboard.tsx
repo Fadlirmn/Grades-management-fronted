@@ -14,15 +14,15 @@ export function TeacherDashboard() {
   const activeObjectives = new Set(progressData.map(p => p.objective)).size;
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 md:space-y-8">
       {/* Page Header */}
       <div>
-        <h1 className="text-2xl font-semibold text-gray-900">Teacher Dashboard</h1>
-        <p className="text-gray-600 mt-1">Monitor student progress and identify learning gaps</p>
+        <h1 className="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white">Teacher Dashboard</h1>
+        <p className="text-gray-600 dark:text-gray-400 mt-1">Monitor student progress and identify learning gaps</p>
       </div>
 
       {/* Overview Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
         <OverviewCard
           title="Total Students"
           value={students.length}
@@ -58,31 +58,31 @@ export function TeacherDashboard() {
       </div>
 
       {/* AI Insights and Alerts */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
         {/* AI Insights Panel */}
-        <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl border border-blue-200 p-6">
+        <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-xl border border-blue-200 dark:border-blue-800 p-4 md:p-6">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
               <Sparkles className="w-5 h-5 text-white" />
             </div>
             <div>
-              <h2 className="font-semibold text-gray-900">AI Insights</h2>
-              <p className="text-xs text-gray-600">Powered by intelligent analysis</p>
+              <h2 className="font-semibold text-gray-900 dark:text-white">AI Insights</h2>
+              <p className="text-xs text-gray-600 dark:text-gray-400">Powered by intelligent analysis</p>
             </div>
           </div>
           <div className="space-y-3">
             {aiInsights.map((insight) => (
-              <div key={insight.id} className="bg-white rounded-lg p-4 border border-blue-200">
+              <div key={insight.id} className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-blue-200 dark:border-blue-700">
                 <div className="flex items-start gap-3">
                   <div className={`mt-0.5 ${
                     insight.type === 'intervention' 
-                      ? 'text-red-500' 
-                      : 'text-blue-500'
+                      ? 'text-red-500 dark:text-red-400' 
+                      : 'text-blue-500 dark:text-blue-400'
                   }`}>
                     <AlertCircle className="w-4 h-4" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-sm text-gray-900">{insight.message}</p>
+                    <p className="text-sm text-gray-900 dark:text-white">{insight.message}</p>
                   </div>
                 </div>
               </div>
@@ -91,12 +91,12 @@ export function TeacherDashboard() {
         </div>
 
         {/* Students Needing Attention */}
-        <div className="bg-white rounded-xl border border-gray-200 p-6">
+        <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4 md:p-6">
           <div className="flex items-center gap-3 mb-4">
-            <AlertTriangle className="w-5 h-5 text-red-600" />
+            <AlertTriangle className="w-5 h-5 text-red-600 dark:text-red-400" />
             <div>
-              <h2 className="font-semibold text-gray-900">Students Needing Attention</h2>
-              <p className="text-xs text-gray-600">Immediate action recommended</p>
+              <h2 className="font-semibold text-gray-900 dark:text-white">Students Needing Attention</h2>
+              <p className="text-xs text-gray-600 dark:text-gray-400">Immediate action recommended</p>
             </div>
           </div>
           <div className="space-y-3">
@@ -104,15 +104,15 @@ export function TeacherDashboard() {
               <Link
                 key={alert.id}
                 to={`/student/${alert.studentId}`}
-                className="block bg-gray-50 hover:bg-gray-100 rounded-lg p-4 border border-gray-200 transition-colors"
+                className="block bg-gray-50 dark:bg-gray-700/50 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg p-4 border border-gray-200 dark:border-gray-600 transition-colors"
               >
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-1">
-                      <p className="font-medium text-gray-900">{alert.studentName}</p>
+                      <p className="font-medium text-gray-900 dark:text-white">{alert.studentName}</p>
                       <AlertBadge type={alert.type} size="sm" />
                     </div>
-                    <p className="text-sm text-gray-600">{alert.message}</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">{alert.message}</p>
                   </div>
                 </div>
               </Link>
@@ -122,22 +122,22 @@ export function TeacherDashboard() {
       </div>
 
       {/* Most Difficult Objectives */}
-      <div className="bg-white rounded-xl border border-gray-200 p-6">
+      <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4 md:p-6">
         <div className="mb-6">
-          <h2 className="text-xl font-semibold text-gray-900">Most Difficult Objectives</h2>
-          <p className="text-gray-600 mt-1">Topics where students are struggling</p>
+          <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Most Difficult Objectives</h2>
+          <p className="text-gray-600 dark:text-gray-400 mt-1">Topics where students are struggling</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {difficultObjectives.map((item, index) => (
-            <div key={index} className="border border-gray-200 rounded-lg p-4 hover:border-blue-300 transition-colors">
+            <div key={index} className="border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:border-blue-300 dark:hover:border-blue-600 transition-colors">
               <div className="flex items-start justify-between mb-2">
-                <span className="text-xs px-2 py-1 bg-orange-100 text-orange-700 rounded">
+                <span className="text-xs px-2 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded">
                   {item.subject}
                 </span>
-                <span className="text-lg font-semibold text-red-600">{item.studentsStruggling}</span>
+                <span className="text-lg font-semibold text-red-600 dark:text-red-400">{item.studentsStruggling}</span>
               </div>
-              <p className="text-sm font-medium text-gray-900 mt-2">{item.objective}</p>
-              <p className="text-xs text-gray-600 mt-1">
+              <p className="text-sm font-medium text-gray-900 dark:text-white mt-2">{item.objective}</p>
+              <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
                 {item.studentsStruggling} {item.studentsStruggling === 1 ? 'student' : 'students'} struggling
               </p>
             </div>
@@ -151,8 +151,8 @@ export function TeacherDashboard() {
       {/* Class Performance Table */}
       <div>
         <div className="mb-4">
-          <h2 className="text-xl font-semibold text-gray-900">Class Performance</h2>
-          <p className="text-gray-600 mt-1">Detailed view of student progress and status</p>
+          <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Class Performance</h2>
+          <p className="text-gray-600 dark:text-gray-400 mt-1">Detailed view of student progress and status</p>
         </div>
         <StudentProgressTable />
       </div>

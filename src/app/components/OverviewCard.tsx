@@ -18,17 +18,17 @@ export function OverviewCard({
   iconBg 
 }: OverviewCardProps) {
   const changeColors = {
-    positive: 'text-green-600',
-    negative: 'text-red-600',
-    neutral: 'text-gray-600',
+    positive: 'text-green-600 dark:text-green-400',
+    negative: 'text-red-600 dark:text-red-400',
+    neutral: 'text-gray-600 dark:text-gray-400',
   };
 
   return (
-    <div className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow">
+    <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow">
       <div className="flex items-start justify-between">
         <div className="flex-1">
-          <p className="text-sm text-gray-600 mb-1">{title}</p>
-          <p className="text-3xl font-semibold text-gray-900 mb-2">{value}</p>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">{title}</p>
+          <p className="text-3xl font-semibold text-gray-900 dark:text-white mb-2">{value}</p>
           {change && (
             <p className={`text-sm ${changeColors[changeType]}`}>
               {change}

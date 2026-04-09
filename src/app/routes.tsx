@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router';
+import { createBrowserRouter, Navigate } from 'react-router';
 import { Layout } from './components/Layout';
 import { Dashboard } from './pages/Dashboard';
 import { StudentDetail } from './pages/StudentDetail';
@@ -7,9 +7,15 @@ import { Subjects } from './pages/Subjects';
 import { Assignments } from './pages/Assignments';
 import { ProgressTracking } from './pages/ProgressTracking';
 import { Reports } from './pages/Reports';
+import { Login } from './pages/Login';
+import { Profile } from './pages/Profile';
 import { NotFound } from './pages/NotFound';
 
 export const router = createBrowserRouter([
+  {
+    path: '/login',
+    Component: Login,
+  },
   {
     path: '/',
     Component: Layout,
@@ -21,6 +27,7 @@ export const router = createBrowserRouter([
       { path: 'assignments', Component: Assignments },
       { path: 'progress', Component: ProgressTracking },
       { path: 'reports', Component: Reports },
+      { path: 'profile', Component: Profile },
       { path: '*', Component: NotFound },
     ],
   },
