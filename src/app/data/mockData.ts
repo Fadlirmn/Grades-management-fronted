@@ -14,6 +14,18 @@ export interface Subject {
   code: string;
   color: string;
 }
+export interface Objective {
+  id: string;
+  subjectId: string;
+  week: string;
+  description: string;
+}
+export interface Score {
+  id: string;
+  studentId: string;
+  assignmentId: string;
+  score: string;
+}
 
 export interface ProgressEntry {
   id: string;

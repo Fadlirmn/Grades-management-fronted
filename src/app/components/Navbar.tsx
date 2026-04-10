@@ -1,7 +1,7 @@
 import { Search, Bell, User, Moon, Sun, Menu, LogOut } from 'lucide-react';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router';
-import { RoleSwitcher } from './RoleSwitcher';
+
 import { useRole } from '../contexts/RoleContext';
 import { useTheme } from '../contexts/ThemeContext';
 import { useAuth } from '../contexts/AuthContext';
@@ -66,7 +66,7 @@ export function Navbar() {
         <div className="flex items-center gap-2 md:gap-4">
           {/* Role Switcher - Hidden on small screens */}
           <div className="hidden lg:block">
-            <RoleSwitcher />
+            
           </div>
 
           {/* Dark Mode Toggle */}
@@ -137,7 +137,7 @@ export function Navbar() {
             </div>
           </div>
           <div className="mb-4">
-            <RoleSwitcher />
+            
           </div>
         </div>
       )}
